@@ -13,8 +13,10 @@ struct MediaInfo: Codable, Equatable {
     let uploader: String
     let platform: String
     let duration: Double?
-    let thumbnailURL: String
+    let thumbnailUrl: String
     let formats: [MediaFormat]
+
+    var thumbnailURL: String { thumbnailUrl }
 
     var durationText: String {
         guard let duration else { return "未知时长" }

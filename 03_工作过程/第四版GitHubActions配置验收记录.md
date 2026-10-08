@@ -48,7 +48,9 @@
 | 修复 | 服务端测试固定在 `server/` 工作目录，并使用 `PYTHONPATH=.`，避免同名模块遮蔽 |
 | 第二轮 Workflow Run | `37781140867`：服务端 6/6 通过；Xcode 16.4 因中文 `PRODUCT_NAME` 与测试宿主路径不一致而失败 |
 | 第二轮修复 | 移除内部产物名覆盖，保留 `CFBundleDisplayName=视频下载`，使 Xcode 测试宿主回到 `VideoDownloader.app/VideoDownloader` |
-| macOS真实构建 | 等待第二轮修复后的 Workflow 复跑 |
+| 第三轮 Workflow Run | `37781627794`：Xcode 编译成功并执行 2 个测试；1 个通过，1 个因 `thumbnail_url` 到 `thumbnailURL` 的缩写映射失败 |
+| 第三轮修复 | Codable 存储字段改为策略可识别的 `thumbnailUrl`，同时用计算属性保留界面侧 `thumbnailURL` API |
+| macOS真实构建 | 等待第三轮修复后的 Workflow 复跑 |
 
 ## 下一验收门
 
