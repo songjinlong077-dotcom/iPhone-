@@ -32,9 +32,10 @@ jobs:
       - name: Install server dependencies
         run: python -m pip install --disable-pip-version-check -r server/requirements-dev.txt
       - name: Run server tests
+        working-directory: server
         env:
-          PYTHONPATH: server
-        run: python -m unittest discover -s server/tests -v
+          PYTHONPATH: .
+        run: python -m unittest discover -s tests -v
 
   ios-build:
     name: Test and build unsigned IPA
