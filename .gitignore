@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+server/.venv/
+
+# Runtime data and secrets
+.env
+*.env.local
+config/settings.json
+config/history.json
+config/download-archive.txt
+downloads/
+logs/
+server/data/
+
+# Large local Windows tools and build outputs
+tools/
+04_交付物/
+90_归档/
+03_工作过程/pyinstaller_build/
+03_工作过程/临时/
+
+# Apple/Xcode generated files
+ios/VideoDownloader.xcodeproj/
+ios/DerivedData/
+ios/build/
+ios/output/
+*.xcuserstate
+xcuserdata/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

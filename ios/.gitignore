@@ -1,0 +1,5 @@
+VideoDownloader.xcodeproj/
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/

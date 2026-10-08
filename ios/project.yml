@@ -1,0 +1,43 @@
+name: VideoDownloader
+options:
+  bundleIdPrefix: com.videodownloader
+  deploymentTarget:
+    iOS: "16.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    IPHONEOS_DEPLOYMENT_TARGET: "16.0"
+    TARGETED_DEVICE_FAMILY: "1"
+    SUPPORTS_MACCATALYST: "NO"
+targets:
+  VideoDownloader:
+    type: application
+    platform: iOS
+    sources:
+      - path: VideoDownloader
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.videodownloader.v4
+        PRODUCT_NAME: 视频下载
+        GENERATE_INFOPLIST_FILE: "YES"
+        INFOPLIST_KEY_CFBundleDisplayName: 视频下载
+        INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription: 用于将您下载且有权保存的视频写入相册。
+        CODE_SIGN_STYLE: Automatic
+  VideoDownloaderTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: VideoDownloaderTests
+    dependencies:
+      - target: VideoDownloader
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: "YES"
+schemes:
+  VideoDownloader:
+    build:
+      targets:
+        VideoDownloader: all
+    test:
+      targets:
+        - VideoDownloaderTests
