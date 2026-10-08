@@ -46,7 +46,9 @@
 | 本地 Git仓库 | 已初始化 `codex/v4-ios` 分支并通过暂存清单检查 |
 | 首轮 Workflow Run | `37780507771`：服务端测试导入了仓库根目录 `app.py`，失败；iOS Job 按依赖约束正确跳过 |
 | 修复 | 服务端测试固定在 `server/` 工作目录，并使用 `PYTHONPATH=.`，避免同名模块遮蔽 |
-| macOS真实构建 | 等待修复提交后的 Workflow 复跑 |
+| 第二轮 Workflow Run | `37781140867`：服务端 6/6 通过；Xcode 16.4 因中文 `PRODUCT_NAME` 与测试宿主路径不一致而失败 |
+| 第二轮修复 | 移除内部产物名覆盖，保留 `CFBundleDisplayName=视频下载`，使 Xcode 测试宿主回到 `VideoDownloader.app/VideoDownloader` |
+| macOS真实构建 | 等待第二轮修复后的 Workflow 复跑 |
 
 ## 下一验收门
 
