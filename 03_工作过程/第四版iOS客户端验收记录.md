@@ -33,4 +33,4 @@
 
 ## 验收边界
 
-本阶段不能宣称客户端已通过 Xcode 编译。第五阶段必须在 GitHub Actions macOS Runner 上依次完成 XcodeGen 工程生成、模拟器测试、真机 arm64 无签名构建和 IPA 结构校验。
+后续 GitHub Actions Run `37782960088` 已在 Xcode 16.4 完成工程生成、2/2 模拟器测试、iPhoneOS arm64 无签名构建和 IPA结构校验。客户端云端编译验收已通过；剩余验收门为 Windows/Sideloadly 重签、iPhone安装启动及连接真实云服务器。

@@ -2,7 +2,7 @@
 
 - 日期：2026-10-08
 - 阶段：第五阶段配置
-- 结果：工作流与打包脚本完成静态验证；首轮实跑发现并修复服务端测试工作目录冲突，等待复跑
+- 结果：通过；GitHub Actions 已真实生成并验证待重签 IPA
 - 仓库可见性决策：公开仓库（用户于 2026-10-08 确认）
 
 ## 已完成
@@ -50,9 +50,16 @@
 | 第二轮修复 | 移除内部产物名覆盖，保留 `CFBundleDisplayName=视频下载`，使 Xcode 测试宿主回到 `VideoDownloader.app/VideoDownloader` |
 | 第三轮 Workflow Run | `37781627794`：Xcode 编译成功并执行 2 个测试；1 个通过，1 个因 `thumbnail_url` 到 `thumbnailURL` 的缩写映射失败 |
 | 第三轮修复 | Codable 存储字段改为策略可识别的 `thumbnailUrl`，同时用计算属性保留界面侧 `thumbnailURL` API |
-| macOS真实构建 | 等待第三轮修复后的 Workflow 复跑 |
+| 第四轮 Workflow Run | `37782960088`：两个 Job 全部成功 |
+| FastAPI测试 | 6/6 通过 |
+| Swift测试 | 2/2 通过，`TEST SUCCEEDED` |
+| 真机架构 | `arm64` |
+| IPA完整性 | ZIP无错误；包含 `Payload/VideoDownloader.app/Info.plist` 与主程序；不含 `_CodeSignature` |
+| Artifact | `VideoDownloader-v4-ios-build`，ID `11553496265`，到期日 2026-10-22 |
+| 本地交付目录 | `04_交付物\iOS_V4_GitHub_Run_37782960088` |
+| IPA SHA-256 | `25affd86f3883270b5e2eb418bfa76587cfbbb38f85ff67cef8b4fa876c00138`，云端摘要与 Windows复算一致 |
 
-## 下一验收门
+## Artifact内容验收
 
 项目上传 GitHub后，必须取得一次全部绿色的 Workflow Run，并下载 Artifact确认其中包含：
 
@@ -65,4 +72,4 @@
 - `ipa-integrity.txt`
 - `ipa-contents.txt`
 
-只有真实 macOS Runner通过后，才可进入 Windows/Sideloadly实机安装阶段。
+上述文件均已下载并检查。现在可以进入 Windows/Sideloadly实机重签安装阶段；“可安装并正常启动”的最终结论仍须以用户自己的 iPhone 实机结果为准。

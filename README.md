@@ -1,6 +1,6 @@
 # Windows 视频下载工具 v2.1
 
-> 第四版状态：FastAPI 服务端、原生 SwiftUI 客户端源码和 GitHub Actions IPA工作流均已完成。当前等待把项目上传到 GitHub并首次运行 macOS构建；尚未生成经过云端验证的 IPA。详见 `03_工作过程\第四版GitHubActions配置验收记录.md`。
+> 第四版状态：FastAPI 服务端、原生 SwiftUI 客户端源码和 GitHub Actions IPA工作流均已完成。GitHub Actions Run `37782960088` 已通过 FastAPI 6/6、Swift 2/2、iPhoneOS arm64 构建和 IPA完整性检查，并生成待 Sideloadly 重签的 IPA。详见 `03_工作过程\第四版GitHubActions配置验收记录.md`。
 
 Windows 中文 GUI 视频下载器。第二版在第一版 MP4 直链下载基础上集成项目随附的 yt-dlp、FFmpeg、FFprobe 和 Deno，支持 yt-dlp 当前兼容的主流公开、可访问、无 DRM 流媒体页面；v2.1 新增浏览器 Cookie 与 cookies.txt 登录支持，用于解决 YouTube 等网站的“登录确认不是机器人”拦截。
 
